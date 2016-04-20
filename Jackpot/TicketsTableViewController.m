@@ -55,6 +55,12 @@
     Ticket* aTicket = tickets[indexPath.row];
     cell.textLabel.text = [aTicket description];
     cell.detailTextLabel.text = aTicket.payout;
+    
+    if (aTicket.winner)
+        cell.detailTextLabel.textColor = [UIColor greenColor];
+    else
+        cell.detailTextLabel.textColor = [UIColor redColor];
+
     return cell;
     
 }
@@ -104,6 +110,10 @@
 }
 */
 
+
+//
+//  button to create a ticket
+//
 -(IBAction)createTicket:(id)sender{
     
     Ticket* aTicket = [Ticket ticketUsingQuickPick:@1];
@@ -113,5 +123,20 @@
     
 }
 
+//
+//  button to check for a winning ticket
+//
+-(IBAction)checkWinners:(id)sender{
+    
+    //
+    //  generate a new ticket
+    //
+    Ticket *winner = [Ticket ticketUsingQuickPick:@0];
+    for (Ticket* ticket in tickets) {
+        [ticket compareWithTicket:winner];
+    }
+    [self.tableView reloadData];
+
+}
 
 @end

@@ -63,6 +63,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="aek-KD-08I">
+                        <barButtonItem key="leftBarButtonItem" title="Check Winners" style="plain" id="nHq-jj-EEh">
+                            <connections>
+                                <action selector="checkWinners:" destination="F1u-ir-cGH" id="1G1-Cz-3iI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fbx-Sv-ejz">
                             <connections>
                                 <action selector="createTicket:" destination="F1u-ir-cGH" id="XLr-tB-4T5"/>

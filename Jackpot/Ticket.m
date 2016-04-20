@@ -19,6 +19,24 @@
 
 @implementation Ticket
 
+//
+//  internal function to see if a passed nsnumber is in a passed array
+//
+bool numberInArray(NSNumber* pnum, NSArray* parray) {
+    
+    for(NSNumber* anumber in parray){
+        if(pnum.intValue == anumber.intValue)
+            return(YES);
+    }
+    
+    return(NO);
+    
+}
+
+
+//
+//  create a new object
+//
 - (instancetype)init
 {
     self = [super init];
@@ -30,6 +48,9 @@
     return self;
 }
 
+//
+//  create a ticket using randon numbers
+//
 +(instancetype)ticketUsingQuickPick:(NSNumber*) cost{
     
     Ticket *aTicket = [[Ticket alloc] init];
@@ -43,6 +64,23 @@
     return aTicket;
 }
 
+//
+//  create a randon number for the ticket
+//
+-(void)createPick{
+    
+    int pickInt = arc4random() % 54 + 1;
+    NSNumber* pickNumber = [NSNumber numberWithInt:pickInt];
+    
+    if (!numberInArray(pickNumber, picks))
+        [picks addObject:pickNumber];
+    
+}
+
+
+//
+//  create a ticket using passed numbers
+//
 +(instancetype)ticketUsingArray:(NSArray*)picks cost:(NSNumber*) cost{
     
     Ticket *aTicket = [[Ticket alloc] init];
@@ -58,42 +96,26 @@
     
 }
 
-bool numberInArray(NSNumber* pnum, NSArray* parray) {
-    
-    for(NSNumber* anumber in parray){
-        if(pnum.intValue == anumber.intValue)
-            return(YES);
-    }
-
-    return(NO);
-    
-}
-
-
--(void)createPick{
-    
-    int pickInt = arc4random() % 54 + 1;
-    NSNumber* pickNumber = [NSNumber numberWithInt:pickInt];
-    
-    if (!numberInArray(pickNumber, picks))
-        [picks addObject:pickNumber];
-    
-}
-
-
+//
+//  return copy of picks
+//
 -(NSArray*)picks{
     
     return [picks copy];
     
 }
 
+
+//
+//  see if the passed ticket matches and set attributes
+//
 -(void)compareWithTicket:(Ticket*)anotherTicket{
     
     NSArray* payout = @[@0, @1, @1, @5, @10, @100, @1000];
     int matchCount = 0;
     
     for(NSNumber *ourNumber in picks){
-        if (numberInArray(ourNumber, picks))
+        if (numberInArray(ourNumber, anotherTicket.picks))
             matchCount++;
     }
     
@@ -110,9 +132,23 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
     
 }
 
+
+//
+//  return tickets picks as a string sorted
+//
 -(NSString*)description{
+
+    NSMutableArray *cpicks = [self.picks mutableCopy];
+    NSSortDescriptor *asc = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+    [cpicks sortUsingDescriptors:[NSArray arrayWithObject:asc]];
     
-    return [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", picks[0], picks[1], picks[2], picks[3], picks[4], picks[5] ];
+    NSString *str = [[NSString alloc] init];
+    for (NSNumber* pick in cpicks) {
+        str = [str stringByAppendingString:[pick stringValue]];
+        str = [str stringByAppendingString:@", "];
+    }
+    
+    return [str substringToIndex:str.length - 2];
     
 }
 
