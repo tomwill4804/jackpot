@@ -12,9 +12,11 @@
 
 @property (assign) BOOL winner;
 @property (copy, nonatomic) NSString* payout;
+@property (copy, nonatomic) NSNumber* payoutAmount;
+@property (copy, nonatomic) NSNumber* cost;
 
-+(instancetype)ticketUsingQuickPick;
-+(instancetype)ticketUsingArray:(NSArray*)picks;
++(instancetype)ticketUsingQuickPick:(NSNumber*) cost;
++(instancetype)ticketUsingArray:(NSArray*)picks cost:(NSNumber*) cost;
 
 -(void)compareWithTicket:(Ticket*)anotherTicket;
 -(NSArray*)picks;

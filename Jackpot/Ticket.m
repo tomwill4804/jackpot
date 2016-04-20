@@ -30,9 +30,10 @@
     return self;
 }
 
-+(instancetype)ticketUsingQuickPick{
++(instancetype)ticketUsingQuickPick:(NSNumber*) cost{
     
     Ticket *aTicket = [[Ticket alloc] init];
+    aTicket.cost = cost;
     
     do {
        [aTicket createPick];
@@ -42,9 +43,10 @@
     return aTicket;
 }
 
-+(instancetype)ticketUsingArray:(NSArray*)picks{
++(instancetype)ticketUsingArray:(NSArray*)picks cost:(NSNumber*) cost{
     
     Ticket *aTicket = [[Ticket alloc] init];
+    aTicket.cost = cost;
     [aTicket storeTheArrayIntoPicks:picks];
     
     return aTicket;
@@ -55,20 +57,27 @@
     picks = [array mutableCopy];
     
 }
-         
+
+bool numberInArray(NSNumber* pnum, NSArray* parray) {
+    
+    for(NSNumber* anumber in parray){
+        if(pnum.intValue == anumber.intValue)
+            return(YES);
+    }
+
+    return(NO);
+    
+}
+
+
 -(void)createPick{
     
     int pickInt = arc4random() % 54 + 1;
     NSNumber* pickNumber = [NSNumber numberWithInt:pickInt];
     
-    BOOL dontAdd = NO;
-    for(NSNumber* entry in picks) {
-        if (entry.intValue == pickInt)
-            dontAdd = YES;
-    }
-        
-    if (!dontAdd)
+    if (!numberInArray(pickNumber, picks))
         [picks addObject:pickNumber];
+    
 }
 
 
@@ -80,45 +89,24 @@
 
 -(void)compareWithTicket:(Ticket*)anotherTicket{
     
-    NSArray* possibleWinningNumbers = anotherTicket.picks;
+    NSArray* payout = @[@0, @1, @1, @5, @10, @100, @1000];
     int matchCount = 0;
     
     for(NSNumber *ourNumber in picks){
-        for(NSNumber *theirNumber in possibleWinningNumbers){
-            if(ourNumber.intValue == theirNumber.intValue)
-                matchCount++;
-        }
+        if (numberInArray(ourNumber, picks))
+            matchCount++;
     }
     
-    switch (matchCount) {
-        case 1:
-            self.winner = YES;
-            self.payout = @"$1";
-            break;
-        case 2:
-            self.winner = YES;
-            self.payout = @"$1";
-            break;
-        case 3:
-            self.winner = YES;
-            self.payout = @"$5";
-            break;
-        case 4:
-            self.winner = YES;
-            self.payout = @"$10";
-            break;
-        case 5:
-            self.winner = YES;
-            self.payout = @"$100";
-            break;
-        case 6:
-            self.winner = YES;
-            self.payout = @"$1000";
-            break;
-        default:
-            self.payout = @"sorry please play again";
-            break;
+    if (matchCount > 0) {
+        self.winner = YES;
+        self.payoutAmount = payout[matchCount];
+        self.payout = [NSString stringWithFormat:@"$%@", self.payoutAmount];
     }
+    else {
+        self.winner = NO;
+        self.payoutAmount = 0;
+        self.payout = @"Sorry, please play again";
+     }
     
 }
 

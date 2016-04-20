@@ -106,7 +106,7 @@
 
 -(IBAction)createTicket:(id)sender{
     
-    Ticket* aTicket = [Ticket ticketUsingQuickPick];
+    Ticket* aTicket = [Ticket ticketUsingQuickPick:@1];
     [tickets addObject:aTicket];
     
     [self.tableView reloadData];
