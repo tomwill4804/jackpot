@@ -7,6 +7,7 @@
 //
 
 #import "TicketsTableViewController.h"
+#import "Ticket.h"
 
 @interface TicketsTableViewController() {
     
@@ -15,6 +16,7 @@
 }
 
 @end
+
 
 @implementation TicketsTableViewController
 
@@ -43,15 +45,20 @@
     
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lottoTicket" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    Ticket* aTicket = tickets[indexPath.row];
+    cell.textLabel.text = [aTicket description];
+    cell.detailTextLabel.text = aTicket.payout;
     return cell;
+    
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -96,5 +103,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(IBAction)createTicket:(id)sender{
+    
+    Ticket* aTicket = [Ticket ticketUsingQuickPick];
+    [tickets addObject:aTicket];
+    
+    [self.tableView reloadData];
+    
+}
+
 
 @end

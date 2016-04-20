@@ -120,6 +120,11 @@
             break;
     }
     
+}
+
+-(NSString*)description{
+    
+    return [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", picks[0], picks[1], picks[2], picks[3], picks[4], picks[5] ];
     
 }
 

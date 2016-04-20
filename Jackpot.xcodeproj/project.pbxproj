@@ -66,10 +66,10 @@
 			children = (
 				E3CF04771CC7BC06004357BE /* AppDelegate.h */,
 				E3CF04781CC7BC06004357BE /* AppDelegate.m */,
-				E3CF048B1CC7C2B8004357BE /* TicketsTableViewController.h */,
-				E3CF048C1CC7C2B8004357BE /* TicketsTableViewController.m */,
 				E3CF048E1CC7C4BF004357BE /* Ticket.h */,
 				E3CF048F1CC7C4BF004357BE /* Ticket.m */,
+				E3CF048B1CC7C2B8004357BE /* TicketsTableViewController.h */,
+				E3CF048C1CC7C2B8004357BE /* TicketsTableViewController.m */,
 				E3CF047A1CC7BC06004357BE /* ViewController.h */,
 				E3CF047B1CC7BC06004357BE /* ViewController.m */,
 				E3CF047D1CC7BC06004357BE /* Main.storyboard */,
