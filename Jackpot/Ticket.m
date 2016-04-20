@@ -157,14 +157,15 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
 //
 -(NSMutableAttributedString*)colorDescription:(Ticket*) anotherTicket {
     
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[self description]];
     NSString *oStr = [NSString stringWithFormat: @"%@,", [self description]];
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:oStr];
 
     for(NSNumber *ourNumber in picks) {
         if (numberInArray(ourNumber, anotherTicket.picks)) {
             NSString *vStr = [NSString stringWithFormat: @"%@,", [ourNumber stringValue]];
             NSRange range = [oStr rangeOfString:vStr];
             if (range.location != NSNotFound)
+                range.length--;
                 [str addAttribute: NSForegroundColorAttributeName value: [UIColor greenColor] range: range];
         }
     }
