@@ -14,25 +14,29 @@
     NSMutableArray *tickets;
     Ticket* winningTicket;
     
+    float totalSpent;
+    float totalWon;
+    float ticketPrice;
+    
 }
 
 @end
 
-
 @implementation TicketsTableViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"";
     tickets = [[NSMutableArray alloc] init];
     winningTicket = nil;
+    totalWon = 0;
+    totalSpent = 0;
+    ticketPrice = 1;
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -117,14 +121,26 @@
 }
 */
 
+//
+//  update the title
+//
+-(void)updateTitle{
+    
+    self.title = [NSString stringWithFormat:@"Spent $%g to win $%g", totalSpent, totalWon];
+    
+}
 
 //
 //  button to create a ticket
 //
 -(IBAction)createTicket:(id)sender{
     
-    Ticket* aTicket = [Ticket ticketUsingQuickPick:@1];
+    Ticket* aTicket = [Ticket ticketUsingQuickPick:@(ticketPrice)];
     [tickets addObject:aTicket];
+    
+    totalSpent += ticketPrice;
+    totalWon = 0;
+    [self updateTitle];
     
     [self.tableView reloadData];
     
@@ -138,12 +154,16 @@
     //
     //  generate a new ticket
     //
+    totalWon = 0;
     Ticket *winner = [Ticket ticketUsingQuickPick:@0];
     for (Ticket* ticket in tickets) {
         [ticket compareWithTicket:winner];
+        totalWon += [ticket.payoutAmount intValue];
     }
     
     winningTicket = winner;
+    [self updateTitle];
+    
     [self.tableView reloadData];
 
 }
