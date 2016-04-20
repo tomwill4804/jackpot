@@ -152,4 +152,24 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
     
 }
 
+//
+//  return tickets picks as a string sorted with color
+//
+-(NSMutableAttributedString*)colorList:(Ticket*) anotherTicket {
+    
+    
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[self description]];
+    
+    for(NSNumber *ourNumber in picks) {
+        if (numberInArray(ourNumber, anotherTicket.picks)) {
+            NSRange range = NSMakeRange(5, 100);
+            [str addAttribute: NSForegroundColorAttributeName value: [UIColor greenColor] range: range];
+        }
+    }
+    
+    return str;
+    
+}
+
+
 @end

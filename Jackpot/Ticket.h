@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Ticket : NSObject
 
@@ -19,6 +20,7 @@
 +(instancetype)ticketUsingArray:(NSArray*)picks cost:(NSNumber*) cost;
 
 -(void)compareWithTicket:(Ticket*)anotherTicket;
+-(NSMutableAttributedString*)colorList:(Ticket*) anotherTicket;
 -(NSArray*)picks;
 
 @end

@@ -12,6 +12,7 @@
 @interface TicketsTableViewController() {
     
     NSMutableArray *tickets;
+    Ticket* winningTicket;
     
 }
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     
     tickets = [[NSMutableArray alloc] init];
+    winningTicket = nil;
     
 }
 
@@ -55,6 +57,11 @@
     Ticket* aTicket = tickets[indexPath.row];
     cell.textLabel.text = [aTicket description];
     cell.detailTextLabel.text = aTicket.payout;
+    
+    if (winningTicket) {
+        cell.textLabel.text = nil;
+        cell.textLabel.attributedText = [aTicket colorList:winningTicket];
+    }
     
     if (aTicket.winner)
         cell.detailTextLabel.textColor = [UIColor greenColor];
@@ -135,6 +142,8 @@
     for (Ticket* ticket in tickets) {
         [ticket compareWithTicket:winner];
     }
+    
+    winningTicket = winner;
     [self.tableView reloadData];
 
 }
