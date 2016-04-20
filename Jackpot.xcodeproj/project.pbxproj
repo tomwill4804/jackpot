@@ -13,6 +13,8 @@
 		E3CF047F1CC7BC06004357BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF047D1CC7BC06004357BE /* Main.storyboard */; };
 		E3CF04811CC7BC06004357BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CF04801CC7BC06004357BE /* Assets.xcassets */; };
 		E3CF04841CC7BC06004357BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF04821CC7BC06004357BE /* LaunchScreen.storyboard */; };
+		E3CF048D1CC7C2B8004357BE /* TicketsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CF048C1CC7C2B8004357BE /* TicketsTableViewController.m */; };
+		E3CF04901CC7C4BF004357BE /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CF048F1CC7C4BF004357BE /* Ticket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		E3CF04801CC7BC06004357BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3CF04831CC7BC06004357BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3CF04851CC7BC06004357BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3CF048B1CC7C2B8004357BE /* TicketsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketsTableViewController.h; sourceTree = "<group>"; };
+		E3CF048C1CC7C2B8004357BE /* TicketsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketsTableViewController.m; sourceTree = "<group>"; };
+		E3CF048E1CC7C4BF004357BE /* Ticket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		E3CF048F1CC7C4BF004357BE /* Ticket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,10 @@
 			children = (
 				E3CF04771CC7BC06004357BE /* AppDelegate.h */,
 				E3CF04781CC7BC06004357BE /* AppDelegate.m */,
+				E3CF048B1CC7C2B8004357BE /* TicketsTableViewController.h */,
+				E3CF048C1CC7C2B8004357BE /* TicketsTableViewController.m */,
+				E3CF048E1CC7C4BF004357BE /* Ticket.h */,
+				E3CF048F1CC7C4BF004357BE /* Ticket.m */,
 				E3CF047A1CC7BC06004357BE /* ViewController.h */,
 				E3CF047B1CC7BC06004357BE /* ViewController.m */,
 				E3CF047D1CC7BC06004357BE /* Main.storyboard */,
@@ -110,6 +120,7 @@
 				TargetAttributes = {
 					E3CF04701CC7BC06004357BE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 3KY56MBR5K;
 					};
 				};
 			};
@@ -149,7 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CF04901CC7C4BF004357BE /* Ticket.m in Sources */,
 				E3CF047C1CC7BC06004357BE /* ViewController.m in Sources */,
+				E3CF048D1CC7C2B8004357BE /* TicketsTableViewController.m in Sources */,
 				E3CF04791CC7BC06004357BE /* AppDelegate.m in Sources */,
 				E3CF04761CC7BC06004357BE /* main.m in Sources */,
 			);
@@ -263,6 +276,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Jackpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dtssoftware.Jackpot;
@@ -274,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Jackpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dtssoftware.Jackpot;
