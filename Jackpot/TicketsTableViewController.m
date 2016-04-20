@@ -60,7 +60,7 @@
     
     if (winningTicket) {
         cell.textLabel.text = nil;
-        cell.textLabel.attributedText = [aTicket colorList:winningTicket];
+        cell.textLabel.attributedText = [aTicket colorDescription:winningTicket];
     }
     
     if (aTicket.winner)

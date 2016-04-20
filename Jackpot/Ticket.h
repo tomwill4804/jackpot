@@ -20,7 +20,7 @@
 +(instancetype)ticketUsingArray:(NSArray*)picks cost:(NSNumber*) cost;
 
 -(void)compareWithTicket:(Ticket*)anotherTicket;
--(NSMutableAttributedString*)colorList:(Ticket*) anotherTicket;
+-(NSMutableAttributedString*)colorDescription:(Ticket*) anotherTicket;
 -(NSArray*)picks;
 
 @end
