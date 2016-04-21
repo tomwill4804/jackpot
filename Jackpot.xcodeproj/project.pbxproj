@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3BABC3B1CC90E22008AC0E9 /* WinningTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BABC3A1CC90E22008AC0E9 /* WinningTicketViewController.m */; };
 		E3CF04761CC7BC06004357BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CF04751CC7BC06004357BE /* main.m */; };
 		E3CF04791CC7BC06004357BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CF04781CC7BC06004357BE /* AppDelegate.m */; };
-		E3CF047C1CC7BC06004357BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CF047B1CC7BC06004357BE /* ViewController.m */; };
 		E3CF047F1CC7BC06004357BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF047D1CC7BC06004357BE /* Main.storyboard */; };
 		E3CF04811CC7BC06004357BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CF04801CC7BC06004357BE /* Assets.xcassets */; };
 		E3CF04841CC7BC06004357BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF04821CC7BC06004357BE /* LaunchScreen.storyboard */; };
@@ -18,12 +18,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E3BABC391CC90E22008AC0E9 /* WinningTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinningTicketViewController.h; sourceTree = "<group>"; };
+		E3BABC3A1CC90E22008AC0E9 /* WinningTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningTicketViewController.m; sourceTree = "<group>"; };
 		E3CF04711CC7BC06004357BE /* Jackpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jackpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CF04751CC7BC06004357BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3CF04771CC7BC06004357BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3CF04781CC7BC06004357BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E3CF047A1CC7BC06004357BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E3CF047B1CC7BC06004357BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E3CF047E1CC7BC06004357BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3CF04801CC7BC06004357BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3CF04831CC7BC06004357BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 				E3CF048F1CC7C4BF004357BE /* Ticket.m */,
 				E3CF048B1CC7C2B8004357BE /* TicketsTableViewController.h */,
 				E3CF048C1CC7C2B8004357BE /* TicketsTableViewController.m */,
-				E3CF047A1CC7BC06004357BE /* ViewController.h */,
-				E3CF047B1CC7BC06004357BE /* ViewController.m */,
+				E3BABC391CC90E22008AC0E9 /* WinningTicketViewController.h */,
+				E3BABC3A1CC90E22008AC0E9 /* WinningTicketViewController.m */,
 				E3CF047D1CC7BC06004357BE /* Main.storyboard */,
 				E3CF04801CC7BC06004357BE /* Assets.xcassets */,
 				E3CF04821CC7BC06004357BE /* LaunchScreen.storyboard */,
@@ -161,7 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CF04901CC7C4BF004357BE /* Ticket.m in Sources */,
-				E3CF047C1CC7BC06004357BE /* ViewController.m in Sources */,
+				E3BABC3B1CC90E22008AC0E9 /* WinningTicketViewController.m in Sources */,
 				E3CF048D1CC7C2B8004357BE /* TicketsTableViewController.m in Sources */,
 				E3CF04791CC7BC06004357BE /* AppDelegate.m in Sources */,
 				E3CF04761CC7BC06004357BE /* main.m in Sources */,
@@ -315,6 +315,7 @@
 				E3CF048A1CC7BC06004357BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
