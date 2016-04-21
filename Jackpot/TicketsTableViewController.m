@@ -25,7 +25,9 @@
 
 @implementation TicketsTableViewController
 
-
+//
+//  initialize values
+//
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,6 +41,9 @@
 }
 
 
+//
+//  set delagate for winning view controller
+//
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"pickNumbers"]) {
@@ -50,6 +55,10 @@
     }
 }
 
+
+//
+//  back from segue so reload table
+//
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
     
     [self updateTitle];
@@ -59,11 +68,17 @@
 
 #pragma mark - Table view data source
 
+//
+//  one section
+//
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
 }
 
+//
+//  one row for each ticket
+//
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return tickets.count;
@@ -71,6 +86,9 @@
 }
 
 
+//
+//  build text with picks for the ticket
+//
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lottoTicket" forIndexPath:indexPath];

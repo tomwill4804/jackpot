@@ -32,7 +32,7 @@
 
 
 //
-//  one colume for each pick
+//  one column for each pick
 //
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
