@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     ticket = [Ticket ticketUsingArray:nil cost:@(0)];
+    self.checkTicketsBtton.enabled = NO;
 
 }
 
@@ -36,7 +37,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
-    return 54;
+    return ticket.maxPickValue;
 }
 
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
@@ -49,6 +50,12 @@
     
     NSString *s = [self pickerView:pickerView titleForRow:row forComponent:component];
     ticket.picks[component] = @([s intValue]);
+    
+    self.checkTicketsBtton.enabled = YES;
+    for(NSNumber *num in ticket.picks) {
+        if ([num intValue] == 0)
+            self.checkTicketsBtton.enabled = NO;
+    }
     
 }
 

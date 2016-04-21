@@ -15,6 +15,8 @@
 @property (copy, nonatomic) NSString* payout;
 @property (copy, nonatomic) NSNumber* payoutAmount;
 @property (copy, nonatomic) NSNumber* cost;
+@property (assign) int maxPickValue;
+
 
 +(instancetype)ticketUsingQuickPick:(NSNumber*) cost;
 +(instancetype)ticketUsingArray:(NSArray*)picks cost:(NSNumber*) cost;

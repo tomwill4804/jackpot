@@ -20,6 +20,7 @@
 @implementation Ticket
 
 const int maxPicks = 6;
+const int maxValue = 54;
 
 //
 //  internal function to see if a passed nsnumber is in a passed array
@@ -46,6 +47,7 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
         picks = [NSMutableArray array];
         self.winner = NO;
         self.payout = @"";
+        self.maxPickValue = maxValue;
     }
     return self;
 }
@@ -70,8 +72,8 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
 //  create a randon number for the ticket
 //
 -(void)createPick{
-    
-    int pickInt = arc4random() % 54 + 1;
+
+    int pickInt = arc4random() % maxValue + 1;
     NSNumber* pickNumber = [NSNumber numberWithInt:pickInt];
     
     if (!numberInArray(pickNumber, picks))
@@ -93,6 +95,10 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
 }
 
 -(void)storeTheArrayIntoPicks:(NSArray*)array{
+    
+    //
+    //  use zero if we were not passed enough picks
+    //
     
     [picks addObjectsFromArray:array];
     while(picks.count < maxPicks)
