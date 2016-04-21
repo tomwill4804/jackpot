@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIButton *checkTicketsBtton;
+@property (weak, nonatomic) IBOutlet UILabel *picksLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *sortSwitch;
 
 
 -(IBAction)checkTicket:(UIButton*)sender;

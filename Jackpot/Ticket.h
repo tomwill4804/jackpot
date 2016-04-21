@@ -25,4 +25,6 @@
 -(NSMutableAttributedString*)colorDescription:(Ticket*) anotherTicket;
 -(NSMutableArray*)picks;
 
+-(NSString*)listedPicks:(bool)sort;
+
 @end

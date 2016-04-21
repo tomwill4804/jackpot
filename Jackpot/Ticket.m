@@ -146,11 +146,14 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
 //
 //  return tickets picks as a string sorted
 //
--(NSString*)description{
+-(NSString*)listedPicks:(bool)sort{
 
     NSMutableArray *cpicks = [self.picks mutableCopy];
-    NSSortDescriptor *asc = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
-    [cpicks sortUsingDescriptors:[NSArray arrayWithObject:asc]];
+    
+    if (sort){
+        NSSortDescriptor *asc = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+        [cpicks sortUsingDescriptors:[NSArray arrayWithObject:asc]];
+    }
     
     NSString *str = [[NSString alloc] init];
     for (NSNumber* pick in cpicks) {
@@ -159,6 +162,12 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
     }
     
     return [str substringToIndex:str.length - 2];
+    
+}
+
+-(NSString*)description{
+    
+    return [self listedPicks:YES];
     
 }
 

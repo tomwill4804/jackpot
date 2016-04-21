@@ -54,6 +54,12 @@
 //
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
+    for(int i=0; i < ticket.picks.count; i++) {
+        NSNumber *num = ticket.picks[i];
+   //     num = @(6);
+        if(i != component && [num intValue] > row)
+            return [NSString stringWithFormat:@"%d", (int)row+2];
+    }
     return [NSString stringWithFormat:@"%d", (int)row+1];
             
 }
@@ -73,6 +79,9 @@
             self.checkTicketsBtton.enabled = NO;
     }
     
+    // [self.pickerView reloadAllComponents];
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch];
+    
 }
 
 
@@ -89,6 +98,8 @@
         int value = [ticket.picks[i] intValue];
         [self.pickerView selectRow:value-1 inComponent:i animated:YES];
     }
+    
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch];
     
 }
 
