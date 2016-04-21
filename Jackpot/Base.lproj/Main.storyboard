@@ -94,27 +94,24 @@
                                     <segue destination="tAj-ZQ-vCk" kind="unwind" unwindAction="prepareForUnwind:" id="eL2-CL-ar2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-f0-viN">
-                                <rect key="frame" x="251" y="426" width="99" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-f0-viN">
+                                <rect key="frame" x="249" y="426" width="103" height="30"/>
                                 <state key="normal" title="Random Ticket"/>
                                 <connections>
                                     <action selector="randomTicket:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="hSk-Zk-uC8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dla-8D-0Y4">
-                                <rect key="frame" x="138" y="486" width="332" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dla-8D-0Y4">
+                                <rect key="frame" x="279" y="486" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRQ-p8-8hu">
-                                <rect key="frame" x="54" y="486" width="33" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-02-mim">
-                                <rect key="frame" x="33" y="481" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-02-mim">
+                                <rect key="frame" x="276" y="517" width="51" height="31"/>
+                                <connections>
+                                    <action selector="sortList:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="Vxi-JO-Xwt"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,6 +121,7 @@
                             <constraint firstItem="9TO-f0-viN" firstAttribute="top" secondItem="xIg-fR-UbB" secondAttribute="bottom" constant="24" id="E9m-EA-3Rj"/>
                             <constraint firstItem="dla-8D-0Y4" firstAttribute="centerX" secondItem="FY5-0D-7TP" secondAttribute="centerX" id="GmP-gP-EZu"/>
                             <constraint firstItem="9TO-f0-viN" firstAttribute="centerX" secondItem="FY5-0D-7TP" secondAttribute="centerX" id="HFE-Rd-F3D"/>
+                            <constraint firstItem="Szx-02-mim" firstAttribute="top" secondItem="dla-8D-0Y4" secondAttribute="bottom" constant="10" id="Le5-sr-nvO"/>
                             <constraint firstItem="dla-8D-0Y4" firstAttribute="top" secondItem="9TO-f0-viN" secondAttribute="bottom" constant="30" id="fkj-Bf-z5L"/>
                             <constraint firstItem="Szx-02-mim" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" constant="75" id="gi4-SG-BCI"/>
                             <constraint firstItem="9TO-f0-viN" firstAttribute="centerY" secondItem="FY5-0D-7TP" secondAttribute="centerY" id="hNw-vB-yan"/>
@@ -131,13 +129,14 @@
                             <constraint firstItem="xIg-fR-UbB" firstAttribute="centerX" secondItem="FY5-0D-7TP" secondAttribute="centerX" id="jbR-df-bV4"/>
                             <constraint firstItem="ILG-yI-lJp" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" id="klX-rX-W42"/>
                             <constraint firstItem="dla-8D-0Y4" firstAttribute="leading" secondItem="Szx-02-mim" secondAttribute="trailing" constant="33" id="tGP-Qh-CQ1"/>
-                            <constraint firstItem="Szx-02-mim" firstAttribute="leading" secondItem="WRQ-p8-8hu" secondAttribute="trailing" constant="8" id="tbv-5R-mEt"/>
-                            <constraint firstItem="WRQ-p8-8hu" firstAttribute="baseline" secondItem="dla-8D-0Y4" secondAttribute="baseline" id="yGN-yj-hqI"/>
                             <constraint firstItem="Szx-02-mim" firstAttribute="centerY" secondItem="dla-8D-0Y4" secondAttribute="centerY" id="zYd-V7-4N7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="hNw-vB-yan"/>
+                                <exclude reference="tGP-Qh-CQ1"/>
+                                <exclude reference="gi4-SG-BCI"/>
+                                <exclude reference="zYd-V7-4N7"/>
                             </mask>
                         </variation>
                     </view>

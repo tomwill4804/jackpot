@@ -80,7 +80,7 @@
     }
     
     // [self.pickerView reloadAllComponents];
-    self.picksLabel.text = [ticket listedPicks:self.sortSwitch];
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
     
 }
 
@@ -99,11 +99,18 @@
         [self.pickerView selectRow:value-1 inComponent:i animated:YES];
     }
     
-    self.picksLabel.text = [ticket listedPicks:self.sortSwitch];
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
     
 }
 
-
+//
+//  sort button picked
+//
+-(IBAction)sortList:(UISwitch*)sender{
+    
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
+    
+}
 
 //
 //  return the winning ticket

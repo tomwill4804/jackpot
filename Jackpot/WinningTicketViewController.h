@@ -29,5 +29,6 @@
 
 -(IBAction)checkTicket:(UIButton*)sender;
 -(IBAction)randomTicket:(UIButton*)sender;
+-(IBAction)sortList:(UISwitch*)sender;
 
 @end
