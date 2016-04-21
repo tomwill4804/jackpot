@@ -59,6 +59,19 @@
     
 }
 
+-(IBAction)randomTicket:(UIButton*)sender{
+    
+    ticket = [Ticket ticketUsingQuickPick:@(0)];
+    self.checkTicketsBtton.enabled = YES;
+    [self.pickerView reloadAllComponents];
+    
+    for(int i=0; i < ticket.picks.count; i++) {
+        int value = [ticket.picks[i] intValue];
+        [self.pickerView selectRow:value-1 inComponent:i animated:YES];
+    }
+    
+}
+
 
 
 -(IBAction)checkTicket:(UIButton*)sender{

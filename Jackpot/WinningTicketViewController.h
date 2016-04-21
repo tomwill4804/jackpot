@@ -23,9 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIButton *checkTicketsBtton;
-@property (weak, nonatomic) IBOutlet UIButton *randomBtton;
 
 
 -(IBAction)checkTicket:(UIButton*)sender;
+-(IBAction)randomTicket:(UIButton*)sender;
 
 @end
