@@ -24,6 +24,9 @@
     
     ticket = [Ticket ticketUsingArray:nil cost:@(0)];
     self.checkTicketsBtton.enabled = NO;
+    
+    self.title = @"Pick a winning ticket";
+    
 
 }
 

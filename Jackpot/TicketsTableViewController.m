@@ -41,12 +41,20 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"xx"]) {
+    if ([segue.identifier isEqualToString:@"pickNumbers"]) {
         
         WinningTicketViewController *wtvc = (WinningTicketViewController *)segue.destinationViewController;
         wtvc.delegate = self;
+        self.title = @"";
         
     }
+}
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    
+    [self updateTitle];
+    [self.tableView reloadData];
+    
 }
 
 #pragma mark - Table view data source
@@ -113,12 +121,12 @@
 }
 
 //
-//  button to check for a winning ticket
+//  delegate to get the returned numbers
 //
 -(void)returnThePickedNumbers:(Ticket *)ticket{
     
     //
-    //  generate a new ticket
+    //  calc total winnings
     //
     totalWon = 0;
     winningTicket = ticket;
@@ -126,10 +134,6 @@
         [ticket compareWithTicket:winningTicket];
         totalWon += [ticket.payoutAmount intValue];
     }
-    
-    [self updateTitle];
-    
-    [self.tableView reloadData];
 
 }
 
