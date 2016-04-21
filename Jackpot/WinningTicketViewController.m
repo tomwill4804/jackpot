@@ -28,24 +28,37 @@
 }
 
 
+//
+//  one colume for each pick
+//
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
     return ticket.picks.count;
     
 }
 
-
+//
+//  spinner max values
+//
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     return ticket.maxPickValue;
 }
 
+
+//
+//  return text for each spinner cell
+//
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
     return [NSString stringWithFormat:@"%d", (int)row+1];
             
 }
 
+
+//
+//  save value selected and see if we have all picks selected
+//
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     NSString *s = [self pickerView:pickerView titleForRow:row forComponent:component];
@@ -59,6 +72,10 @@
     
 }
 
+
+//
+//  generate a random winner
+//
 -(IBAction)randomTicket:(UIButton*)sender{
     
     ticket = [Ticket ticketUsingQuickPick:@(0)];
@@ -74,6 +91,9 @@
 
 
 
+//
+//  return the winning ticket
+//
 -(IBAction)checkTicket:(UIButton*)sender{
     
     [self.delegate returnThePickedNumbers:ticket];
