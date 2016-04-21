@@ -21,6 +21,6 @@
 
 -(void)compareWithTicket:(Ticket*)anotherTicket;
 -(NSMutableAttributedString*)colorDescription:(Ticket*) anotherTicket;
--(NSArray*)picks;
+-(NSMutableArray*)picks;
 
 @end

@@ -99,9 +99,9 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
 //
 //  return copy of picks
 //
--(NSArray*)picks{
+-(NSMutableArray*)picks{
     
-    return [picks copy];
+    return picks;
     
 }
 

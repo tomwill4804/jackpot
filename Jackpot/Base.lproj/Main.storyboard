@@ -49,7 +49,6 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="aek-KD-08I">
                         <barButtonItem key="leftBarButtonItem" title="Winners?" id="nHq-jj-EEh">
                             <connections>
-                                <action selector="checkWinners:" destination="F1u-ir-cGH" id="1G1-Cz-3iI"/>
                                 <segue destination="Jrd-uE-ZG9" kind="show" id="4Al-b0-f8m"/>
                             </connections>
                         </barButtonItem>
@@ -94,6 +93,10 @@
                                     <action selector="checkTicket:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="OM4-ia-pbg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-f0-viN">
+                                <rect key="frame" x="251" y="426" width="99" height="30"/>
+                                <state key="normal" title="Random Ticket"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -104,6 +107,10 @@
                             <constraint firstItem="ILG-yI-lJp" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" id="klX-rX-W42"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkTicketsBtton" destination="xIg-fR-UbB" id="pJt-iV-whw"/>
+                        <outlet property="randomBtton" destination="9TO-f0-viN" id="hO7-dm-Raj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giC-a7-9jL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

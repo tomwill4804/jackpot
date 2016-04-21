@@ -8,8 +8,9 @@
 
 #import "TicketsTableViewController.h"
 #import "Ticket.h"
+#import "WinningTicketViewController.h"
 
-@interface TicketsTableViewController() {
+@interface TicketsTableViewController() <WinningTicketViewControllerDelegate> {
     
     NSMutableArray *tickets;
     Ticket* winningTicket;
@@ -38,6 +39,16 @@
 }
 
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"xx"]) {
+        
+        WinningTicketViewController *wtvc = (WinningTicketViewController *)segue.destinationViewController;
+        wtvc.delegate = self;
+        
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -56,7 +67,6 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"lottoTicket" forIndexPath:indexPath];
     
-    // Configure the cell...
     
     Ticket* aTicket = tickets[indexPath.row];
     cell.textLabel.text = [aTicket description];
@@ -76,50 +86,6 @@
     
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 //
 //  update the title
@@ -149,19 +115,18 @@
 //
 //  button to check for a winning ticket
 //
--(IBAction)checkWinners:(id)sender{
+-(void)returnThePickedNumbers:(Ticket *)ticket{
     
     //
     //  generate a new ticket
     //
     totalWon = 0;
-    Ticket *winner = [Ticket ticketUsingQuickPick:@0];
+    winningTicket = ticket;
     for (Ticket* ticket in tickets) {
-        [ticket compareWithTicket:winner];
+        [ticket compareWithTicket:winningTicket];
         totalWon += [ticket.payoutAmount intValue];
     }
     
-    winningTicket = winner;
     [self updateTitle];
     
     [self.tableView reloadData];
