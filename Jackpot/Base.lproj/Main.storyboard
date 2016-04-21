@@ -109,6 +109,7 @@
                     </view>
                     <connections>
                         <outlet property="checkTicketsBtton" destination="xIg-fR-UbB" id="pJt-iV-whw"/>
+                        <outlet property="pickerView" destination="ILG-yI-lJp" id="PyP-mm-n2T"/>
                         <outlet property="randomBtton" destination="9TO-f0-viN" id="hO7-dm-Raj"/>
                     </connections>
                 </viewController>

@@ -19,6 +19,8 @@
 
 @implementation Ticket
 
+const int maxPicks = 6;
+
 //
 //  internal function to see if a passed nsnumber is in a passed array
 //
@@ -58,7 +60,7 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
     
     do {
        [aTicket createPick];
-    } while (aTicket.picks.count < 6);
+    } while (aTicket.picks.count < maxPicks);
         
     
     return aTicket;
@@ -92,8 +94,10 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
 
 -(void)storeTheArrayIntoPicks:(NSArray*)array{
     
-    picks = [array mutableCopy];
-    
+    [picks addObjectsFromArray:array];
+    while(picks.count < maxPicks)
+        [picks addObject:@(0)];
+
 }
 
 //

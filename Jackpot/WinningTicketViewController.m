@@ -7,7 +7,6 @@
 //
 
 #import "WinningTicketViewController.h"
-#import "Ticket.m"
 
 @interface WinningTicketViewController () <UIPickerViewDelegate, UIPickerViewDataSource>{
     
