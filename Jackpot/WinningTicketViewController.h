@@ -10,4 +10,8 @@
 
 @interface WinningTicketViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIPickerView* pickerView;
+
+-(IBAction)checkTicket:(UIButton*)sender;
+
 @end

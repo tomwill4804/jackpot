@@ -8,7 +8,7 @@
 
 #import "WinningTicketViewController.h"
 
-@interface WinningTicketViewController ()
+@interface WinningTicketViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @end
 
@@ -33,5 +33,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 6;
+    
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    
+    return 54;
+}
+
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    
+    return [NSString stringWithFormat:@"%d", (int)row+1];
+            
+}
+
+
+
+-(IBAction)checkTicket:(UIButton*)sender{
+    
+    
+}
 
 @end
