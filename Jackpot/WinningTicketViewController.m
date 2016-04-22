@@ -30,15 +30,17 @@
 
 }
 
--(NSInteger) dupEntries:(NSInteger) row col:(NSInteger) col {
+-(int) dupEntries:(NSInteger) row col:(NSInteger) col {
     
     int dup=0;
-    for (int arow=0; arow < row + dup + 1; arow++) {
+    for (int arow=0; arow <= row + dup ; arow++) {
         for(int i=0; i < ticket.picks.count; i++) {
             NSNumber *num = ticket.picks[i];
     //        NSLog(@"%d - %d - %d - %d", row, arow, i, num);
-            if(i != col && [num intValue] == arow + 1)
+            if(i != col && [num intValue] == arow + 1) {
                 dup++;
+                NSLog(@"hit %d - %d = %d ", arow, i, [num intValue]);
+            }
         }
     }
     
@@ -112,7 +114,8 @@
     
     for(int col=0; col < ticket.picks.count; col++) {
         int value = [ticket.picks[col] intValue];
-        NSInteger dup = [self dupEntries:value-1 col:col];
+        int value2 = value-1;
+        int dup = [self dupEntries:value2 col:col];
     //    dup += [self dupEntries:value - dup - 1 col:col];
         [self.pickerView selectRow:value-dup-1
                        inComponent:col animated:YES];
