@@ -94,6 +94,10 @@ bool numberInArray(NSNumber* pnum, NSArray* parray) {
     return aTicket;
 }
 
+
+//
+//  create a ticket using passed picks
+//
 -(void)storeTheArrayIntoPicks:(NSArray*)array{
     
     //

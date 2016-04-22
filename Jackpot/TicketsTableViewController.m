@@ -139,7 +139,7 @@
 }
 
 //
-//  delegate to get the returned numbers
+//  delegate to get the returned winning ticket
 //
 -(void)returnThePickedNumbers:(Ticket *)ticket{
     
@@ -152,6 +152,13 @@
         [ticket compareWithTicket:winningTicket];
         totalWon += [ticket.payoutAmount intValue];
     }
+    
+    //
+    //  sort the tickets by winning amount
+    //
+    NSSortDescriptor *asc = [NSSortDescriptor sortDescriptorWithKey:@"payoutAmount" ascending:NO];
+    [tickets sortUsingDescriptors:[NSArray arrayWithObject:asc]];
+
 
 }
 
