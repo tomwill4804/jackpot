@@ -30,6 +30,23 @@
 
 }
 
+-(NSInteger) dupEntries:(NSInteger) row col:(NSInteger) col {
+    
+    int dup=0;
+    for (int arow=0; arow < row + dup + 1; arow++) {
+        for(int i=0; i < ticket.picks.count; i++) {
+            NSNumber *num = ticket.picks[i];
+    //        NSLog(@"%d - %d - %d - %d", row, arow, i, num);
+            if(i != col && [num intValue] == arow + 1)
+                dup++;
+        }
+    }
+    
+    NSLog(@"%d - %d = %d ", col+1, row+1, dup);
+    return dup;
+    
+    
+}
 
 //
 //  one column for each pick
@@ -54,14 +71,14 @@
 //
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    for(int i=0; i < ticket.picks.count; i++) {
-        NSNumber *num = ticket.picks[i];
-   //     num = @(6);
-        if(i != component && [num intValue] > row)
-            return [NSString stringWithFormat:@"%d", (int)row+2];
-    }
-    return [NSString stringWithFormat:@"%d", (int)row+1];
-            
+    NSInteger dup = [self dupEntries:row col:component];
+    NSInteger value = (int)row + dup + 1;
+    
+    if (value > ticket.maxPickValue)
+        return @"";
+    else
+        return [NSString stringWithFormat:@"%d", value];
+    
 }
 
 
@@ -92,15 +109,19 @@
     
     ticket = [Ticket ticketUsingQuickPick:@(0)];
     self.checkTicketsBtton.enabled = YES;
-    [self.pickerView reloadAllComponents];
     
-    for(int i=0; i < ticket.picks.count; i++) {
-        int value = [ticket.picks[i] intValue];
-        [self.pickerView selectRow:value-1 inComponent:i animated:YES];
+    for(int col=0; col < ticket.picks.count; col++) {
+        int value = [ticket.picks[col] intValue];
+        NSInteger dup = [self dupEntries:value-1 col:col];
+    //    dup += [self dupEntries:value - dup - 1 col:col];
+        [self.pickerView selectRow:value-dup-1
+                       inComponent:col animated:YES];
+         NSLog(@"rand %d - %d = %d ", col+1, value, dup);
     }
     
-    self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
+  //  [self.pickerView reloadAllComponents];
     
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
 }
 
 //
