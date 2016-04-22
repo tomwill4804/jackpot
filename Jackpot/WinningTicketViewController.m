@@ -22,8 +22,7 @@
     
     [super viewDidLoad];
     
-    ticket = [Ticket ticketUsingArray:nil cost:@(0)];
-    self.checkTicketsBtton.enabled = NO;
+    [self clearTicket:nil];
     
     self.title = @"Pick a winning ticket";
     
@@ -33,18 +32,16 @@
 -(int) dupEntries:(NSInteger) row col:(NSInteger) col {
     
     int dup=0;
-    for (int arow=0; arow <= row + dup ; arow++) {
+    for (int arow=1; arow <= row + 1 + dup ; arow++) {
         for(int i=0; i < ticket.picks.count; i++) {
             NSNumber *num = ticket.picks[i];
-    //        NSLog(@"%d - %d - %d - %d", row, arow, i, num);
-            if(i != col && [num intValue] == arow + 1) {
+            if(i != col && [num intValue] == arow) {
                 dup++;
-                NSLog(@"hit %d - %d = %d ", arow, i, [num intValue]);
             }
         }
     }
     
-    NSLog(@"%d - %d = %d ", col+1, row+1, dup);
+    NSLog(@"%ld - %ld = %d ", col+1, row+1, dup);
     return dup;
     
     
@@ -79,7 +76,7 @@
     if (value > ticket.maxPickValue)
         return @"";
     else
-        return [NSString stringWithFormat:@"%d", value];
+        return [NSString stringWithFormat:@"%ld", (long)value];
     
 }
 
@@ -98,7 +95,6 @@
             self.checkTicketsBtton.enabled = NO;
     }
     
-    // [self.pickerView reloadAllComponents];
     self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
     
 }
@@ -114,15 +110,13 @@
     
     for(int col=0; col < ticket.picks.count; col++) {
         int value = [ticket.picks[col] intValue];
-        int value2 = value-1;
-        int dup = [self dupEntries:value2 col:col];
-    //    dup += [self dupEntries:value - dup - 1 col:col];
+        int dup = [self dupEntries:value-1 col:col];
         [self.pickerView selectRow:value-dup-1
                        inComponent:col animated:YES];
-         NSLog(@"rand %d - %d = %d ", col+1, value, dup);
+  //       NSLog(@"rand %d - %d = %d ", col+1, value, dup);
     }
     
-  //  [self.pickerView reloadAllComponents];
+    [self.pickerView reloadAllComponents];
     
     self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
 }
@@ -144,5 +138,21 @@
     [self.delegate returnThePickedNumbers:ticket];
     
 }
+
+-(IBAction)clearTicket:(UIButton*)sender{
+    
+    ticket = [Ticket ticketUsingArray:nil cost:@(0)];
+    self.checkTicketsBtton.enabled = NO;
+    self.picksLabel.text = [ticket listedPicks:self.sortSwitch.on];
+    
+    for(int col=0; col < ticket.picks.count; col++) {
+        [self.pickerView selectRow:0 inComponent:col animated:YES];
+    }
+    
+    [self.pickerView reloadAllComponents];
+
+}
+
+
 
 @end

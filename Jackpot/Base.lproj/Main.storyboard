@@ -76,18 +76,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-yI-lJp">
-                                <rect key="frame" x="20" y="148" width="560" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="cFo-Jb-Q8W"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Jrd-uE-ZG9" id="dAx-sg-nJk"/>
-                                    <outlet property="delegate" destination="Jrd-uE-ZG9" id="BF6-dF-Qrd"/>
-                                </connections>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-fR-UbB">
-                                <rect key="frame" x="251" y="372" width="98" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-fR-UbB">
+                                <rect key="frame" x="254" y="322" width="98" height="30"/>
                                 <state key="normal" title="Check Tickets"/>
                                 <connections>
                                     <action selector="checkTicket:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="OM4-ia-pbg"/>
@@ -95,50 +85,66 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TO-f0-viN">
-                                <rect key="frame" x="249" y="426" width="103" height="30"/>
-                                <state key="normal" title="Random Ticket"/>
+                                <rect key="frame" x="272" y="380" width="57" height="30"/>
+                                <state key="normal" title="Random"/>
                                 <connections>
                                     <action selector="randomTicket:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="hSk-Zk-uC8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dla-8D-0Y4">
-                                <rect key="frame" x="279" y="486" width="42" height="21"/>
+                                <rect key="frame" x="183" y="517" width="240" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ede-Bv-x0i"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-02-mim">
-                                <rect key="frame" x="276" y="517" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-02-mim">
+                                <rect key="frame" x="117" y="512" width="51" height="31"/>
                                 <connections>
                                     <action selector="sortList:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="Vxi-JO-Xwt"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLa-Kc-XaH">
+                                <rect key="frame" x="282" y="418" width="36" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearTicket:" destination="Jrd-uE-ZG9" eventType="touchUpInside" id="L57-HQ-sSn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ask-hi-f9M">
+                                <rect key="frame" x="76" y="516" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-yI-lJp">
+                                <rect key="frame" x="20" y="119" width="560" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jrd-uE-ZG9" id="dAx-sg-nJk"/>
+                                    <outlet property="delegate" destination="Jrd-uE-ZG9" id="BF6-dF-Qrd"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ILG-yI-lJp" secondAttribute="trailing" id="6vd-2M-6Vs"/>
-                            <constraint firstItem="xIg-fR-UbB" firstAttribute="top" secondItem="ILG-yI-lJp" secondAttribute="bottom" constant="8" id="Ci6-vp-Zh4"/>
-                            <constraint firstItem="9TO-f0-viN" firstAttribute="top" secondItem="xIg-fR-UbB" secondAttribute="bottom" constant="24" id="E9m-EA-3Rj"/>
-                            <constraint firstItem="dla-8D-0Y4" firstAttribute="centerX" secondItem="FY5-0D-7TP" secondAttribute="centerX" id="GmP-gP-EZu"/>
-                            <constraint firstItem="9TO-f0-viN" firstAttribute="centerX" secondItem="FY5-0D-7TP" secondAttribute="centerX" id="HFE-Rd-F3D"/>
-                            <constraint firstItem="Szx-02-mim" firstAttribute="top" secondItem="dla-8D-0Y4" secondAttribute="bottom" constant="10" id="Le5-sr-nvO"/>
-                            <constraint firstItem="dla-8D-0Y4" firstAttribute="top" secondItem="9TO-f0-viN" secondAttribute="bottom" constant="30" id="fkj-Bf-z5L"/>
-                            <constraint firstItem="Szx-02-mim" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" constant="75" id="gi4-SG-BCI"/>
-                            <constraint firstItem="9TO-f0-viN" firstAttribute="centerY" secondItem="FY5-0D-7TP" secondAttribute="centerY" id="hNw-vB-yan"/>
-                            <constraint firstItem="gWT-Gh-SgD" firstAttribute="top" secondItem="ILG-yI-lJp" secondAttribute="bottom" constant="192" id="hfZ-i4-Ulu"/>
-                            <constraint firstItem="xIg-fR-UbB" firstAttribute="centerX" secondItem="FY5-0D-7TP" secondAttribute="centerX" id="jbR-df-bV4"/>
-                            <constraint firstItem="ILG-yI-lJp" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" id="klX-rX-W42"/>
-                            <constraint firstItem="dla-8D-0Y4" firstAttribute="leading" secondItem="Szx-02-mim" secondAttribute="trailing" constant="33" id="tGP-Qh-CQ1"/>
-                            <constraint firstItem="Szx-02-mim" firstAttribute="centerY" secondItem="dla-8D-0Y4" secondAttribute="centerY" id="zYd-V7-4N7"/>
+                            <constraint firstItem="9TO-f0-viN" firstAttribute="top" secondItem="xIg-fR-UbB" secondAttribute="bottom" constant="14" id="E2j-1L-o0M"/>
+                            <constraint firstItem="ILG-yI-lJp" firstAttribute="top" secondItem="5Hs-sV-x6U" secondAttribute="bottom" constant="55" id="J3J-mv-8JD"/>
+                            <constraint firstItem="gWT-Gh-SgD" firstAttribute="top" secondItem="Ask-hi-f9M" secondAttribute="bottom" constant="19" id="S8R-QL-0pS"/>
+                            <constraint firstItem="gWT-Gh-SgD" firstAttribute="top" secondItem="Szx-02-mim" secondAttribute="bottom" constant="13" id="VEy-Pb-Dch"/>
+                            <constraint firstItem="9TO-f0-viN" firstAttribute="top" secondItem="ILG-yI-lJp" secondAttribute="bottom" constant="45" id="VVv-jL-6fe"/>
+                            <constraint firstItem="dla-8D-0Y4" firstAttribute="leading" secondItem="Szx-02-mim" secondAttribute="trailing" constant="17" id="WnK-db-fGM"/>
+                            <constraint firstItem="GLa-Kc-XaH" firstAttribute="top" secondItem="9TO-f0-viN" secondAttribute="bottom" constant="8" symbolic="YES" id="X5N-Hr-r9Z"/>
+                            <constraint firstItem="Ask-hi-f9M" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" constant="56" id="XkM-kY-Cv2"/>
+                            <constraint firstItem="9TO-f0-viN" firstAttribute="centerX" secondItem="GLa-Kc-XaH" secondAttribute="centerX" id="gh3-sG-mZ5"/>
+                            <constraint firstItem="xIg-fR-UbB" firstAttribute="centerX" secondItem="dla-8D-0Y4" secondAttribute="centerX" id="gqY-Qn-Wfl"/>
+                            <constraint firstItem="ILG-yI-lJp" firstAttribute="centerX" secondItem="9TO-f0-viN" secondAttribute="centerX" id="gsD-pQ-53v"/>
+                            <constraint firstItem="ILG-yI-lJp" firstAttribute="trailing" secondItem="FY5-0D-7TP" secondAttribute="trailingMargin" id="rsN-Gu-PZA"/>
+                            <constraint firstItem="Szx-02-mim" firstAttribute="centerY" secondItem="dla-8D-0Y4" secondAttribute="centerY" id="trO-30-evg"/>
+                            <constraint firstItem="Szx-02-mim" firstAttribute="leading" secondItem="Ask-hi-f9M" secondAttribute="trailing" constant="8" symbolic="YES" id="ucm-3G-55N"/>
+                            <constraint firstItem="ILG-yI-lJp" firstAttribute="leading" secondItem="FY5-0D-7TP" secondAttribute="leadingMargin" id="zfY-9c-htb"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="hNw-vB-yan"/>
-                                <exclude reference="tGP-Qh-CQ1"/>
-                                <exclude reference="gi4-SG-BCI"/>
-                                <exclude reference="zYd-V7-4N7"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="checkTicketsBtton" destination="xIg-fR-UbB" id="pJt-iV-whw"/>
@@ -167,6 +173,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozW-fI-VBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-338" y="648"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="8oF-z0-m34">
+            <objects>
+                <viewControllerPlaceholder id="LTc-Td-02v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tO-V3-hsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>

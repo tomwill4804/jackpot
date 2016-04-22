@@ -30,5 +30,6 @@
 -(IBAction)checkTicket:(UIButton*)sender;
 -(IBAction)randomTicket:(UIButton*)sender;
 -(IBAction)sortList:(UISwitch*)sender;
+-(IBAction)clearTicket:(UIButton*)sender;
 
 @end
