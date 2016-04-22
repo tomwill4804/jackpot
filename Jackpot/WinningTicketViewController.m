@@ -29,6 +29,10 @@
 
 }
 
+
+//
+//  calculate the number of used numbers in other columns
+//
 -(int) dupEntries:(NSInteger) row col:(NSInteger) col {
     
     int dup=0;
@@ -41,7 +45,6 @@
         }
     }
     
-    NSLog(@"%ld - %ld = %d ", col+1, row+1, dup);
     return dup;
     
     
@@ -86,9 +89,12 @@
 //
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    NSString *s = [self pickerView:pickerView titleForRow:row forComponent:component];
+    NSString *s = [self pickerView:self.pickerView titleForRow:row forComponent:component];
     ticket.picks[component] = @([s intValue]);
     
+    //
+    //  see if we have pciked all the numbers we need
+    //
     self.checkTicketsBtton.enabled = YES;
     for(NSNumber *num in ticket.picks) {
         if ([num intValue] == 0)
@@ -108,12 +114,22 @@
     ticket = [Ticket ticketUsingQuickPick:@(0)];
     self.checkTicketsBtton.enabled = YES;
     
+    //
+    //  set spinner for each column to the correct row number
+    //  that matches the winning number
+    //
     for(int col=0; col < ticket.picks.count; col++) {
+        
         int value = [ticket.picks[col] intValue];
-        int dup = [self dupEntries:value-1 col:col];
-        [self.pickerView selectRow:value-dup-1
-                       inComponent:col animated:YES];
-  //       NSLog(@"rand %d - %d = %d ", col+1, value, dup);
+        
+        for (int row=0; row < ticket.maxPickValue; row++) {
+            
+            NSString *s = [self pickerView:self.pickerView titleForRow:row forComponent:col];
+            if ([s intValue] == value) {
+                 [self.pickerView selectRow:row inComponent:col animated:YES];
+                break;
+            }
+        }
     }
     
     [self.pickerView reloadAllComponents];
@@ -139,6 +155,9 @@
     
 }
 
+//
+//  reset winning ticket to all zeros and reset the spinner
+//
 -(IBAction)clearTicket:(UIButton*)sender{
     
     ticket = [Ticket ticketUsingArray:nil cost:@(0)];
